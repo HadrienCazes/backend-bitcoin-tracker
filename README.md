@@ -1,13 +1,17 @@
-In order to setup the DB for the back-end application, please install docker.
-After that, run this command to setup the container that'll run the image of PostgreSQL:
-
-sudo docker run --rm \
---name postgres -e POSTGRES_PASSWORD=docker \
--p 33:5432 \
--v /data/postgres:/var/lib/postgresql/data \
--d postgres
+HOW IT WORKS: The current backend only reads the csv content from the dataset file and convert it to a json object that is usable by the front of the application.
 
 
-It means that the database will be accessible on port 33 and that it will be accessible through the following ID:
-username: `postgres`
-password: `docker`
+Initially, I wanted to setup a docker environment to run PostgreSQL and to make a connection between the back and the docker image.
+
+
+To get the node modules: `npm install`
+
+
+In order to run the backend application, launch in the terminal : `nodemon/node server.js`
+
+
+Please download the following dataset and put it at the root of the folder at /public to make the application work:
+https://www.dropbox.com/s/v7crv32wa7dwpgk/bitcoin_dataset.csv?dl=0
+
+
+The path is hard-coded so if changes are made to the name, please change it in the server.js part.
